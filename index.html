@@ -24,18 +24,21 @@
           <span>Likes:
             <span id="likes">0</span>
           </span>
-          <button id="like_button">Like</button>
+          <button id="like_button" class="btn btn-primary">Like</button>
           <form id="comment_form">
-            <input id="comment_input" type="text" name="comment" placeholder="Add Comment"/>
-            <input type="submit" value="Submit"/>
+            <input id="comment_input" class="input-group-text" type="text" name="comment" placeholder="Add Comment"/>
+            <input type="submit" class="btn btn-primary" value="Submit"/>
           </form>
-          <ul id="comments">
+          <ul id="comments" class="list-group">
 
           </ul>
       </div>
-      <div class="card col-md-4"></div>
+      <div class="card col-md-4">
+        <button id="self-destruct" class="btn btn-danger">Implode The Page</button>
+      </div>
     </div>
   </div>
+  <script type="text/javascript" src='src/adapter.js'></script>
   <script type="text/javascript" src='src/Image.js'></script>
   <script type="text/javascript" src='src/Comment.js'></script>
   <script type="text/javascript" src='src/index.js'></script>
