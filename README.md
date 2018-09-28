@@ -8,6 +8,37 @@
 - ES6 Classes
 - Fetching from APIs
 
+
+I got completely derailed on this. I ran into an issue rendering the image onto my the initial page.
+While I could see the new Image that I had created, I ran into a repeated 404 error that made me believe
+there was something wrong with my adaptor class. I tried googling whatever I could think of that might make it appear and tried countless alterations to my fetch command... and I eventually discovered that I had failed to close the quote on the <image> tag...
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ## Instructions
 
 Today we're building RandoPic, an app for viewing a random picture. There is a backend API that we have provided. You will be building out the frontend for this app.
