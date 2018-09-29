@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', function() {
   })
 
   likeBtn.addEventListener("click", (e) => {
-    let updatedLikes = likeTag.innerText++
+    likeTag.innerText++
     fetch(likeURL, {
       method: "POST",
       headers: {
@@ -48,7 +48,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
   commentForm.addEventListener("submit", (e) => {
     e.preventDefault();
-    commentsUl.innerHTML += `<p id=comment-${this.id}>${commentInput.value} <button class="delete-btn" data-id="">Delete</button> </p>`
 
     fetch(commentsURL, {
       method: "POST",
@@ -63,16 +62,17 @@ document.addEventListener('DOMContentLoaded', function() {
     })
     .then(r => r.json())
     .then(data => {
-      let Btns = commentsUl.querySelectorAll("BUTTON")
-      let lastBtn = Btns[Btns.length - 1]
-      lastBtn.dataset.id = data.id
+      let newComment = new Comment(data)
+      commentsUl.innerHTML += newComment.render()
+      e.target.reset();
     })
-    e.target.reset();
   })
 
   document.addEventListener("click", (e) =>{
     if (e.target.className === "delete-btn") {
+      debugger
       let commentId = e.target.dataset.id
+      allComments = allComments.filter(comment => comment.id !== commentId)
       let targetComment = document.querySelector(`#comment-${commentId}`)
       targetComment.remove();
       fetch(`https://randopic.herokuapp.com/comments/${commentId}`, {

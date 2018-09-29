@@ -1,4 +1,5 @@
+allImgs = [];
 class Image {
-  
+
 
 }
